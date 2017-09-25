@@ -53,6 +53,10 @@ nav ul li:hover {
     background-color: rgb(153,0,0);
 }
 
+nav ul li:nth-child(1) {
+    background-color: rgb(153,0,0);
+}
+
 #main a {
     text-decoration: none;
     color: white;
@@ -98,15 +102,15 @@ nav ul li:hover {
     margin-left: 55%; 
 }
 
-/* All Services */
+/* Our Services */
 
-#services {
+#our_services, #other_services {
     width: 100%;
     padding: 0; 
     margin: 0;
 }
 
-#services h2 {
+#our_services h2, #other_services h2 {
     text-align: center;
     color: rgb(153,0,0);
     font-family: sans-serif;
@@ -171,29 +175,53 @@ nav ul li:hover {
     text-align: center;
 }
 
+
+/* Other Services */
+
 #small_box {
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
+    width: 100%;
     padding: 0;
-    overflow: hidden;
-}
-
-#small_box img {
-    width: 500px;
-    height: 500px;
     margin: 0;
+    text-align: center;
+}
+
+#small_box a  h3{
+    text-decoration: none;
+    color: rgb(153,0,0);
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: 150%;
+}
+
+#small_box a  h3:hover {
+    text-decoration: underline;
+}
+
+.pictures {
+    width: 350px;
+    height: 350px;
     padding: 0;
+    margin: 0;
+    display: inline-block;
 }
 
-#small_box ul {
-    width: 10000px;
+.pictures img {
+    width: 300px;
+    height: 250px;
+    padding: 0;
+    margin: 0;
+    transition: .3s;
 }
 
-#small_box li {
-    float: left;
-    list-style: none;
+.pictures img:hover {
+    border-radius: 10%;
 }
+
+
+
+
+
+
 
 
 
