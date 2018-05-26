@@ -4,9 +4,7 @@
       toggle = document.querySelector('#burger-toggle'), 
       navbarStyle = navbar.style;
 
-  (function() {
-    toggle.checked = false;
-  })();
+  toggle.checked = false;
 
   toggle.addEventListener('change', function() {
     if(toggle.checked) {
