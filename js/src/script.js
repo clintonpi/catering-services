@@ -12,7 +12,7 @@
     if (window.pageYOffset === 0 && !toggle.checked) {
       navbarStyle.backgroundColor = 'transparent';
       navbarStyle.backgroundImage = 'none';
-    } else if ((window.pageYOffset > 0 && atMiddle) || (toggle.checked && atMiddle)) {
+    } else if ((window.pageYOffset > 0 || toggle.checked) && atMiddle) {
       navbarStyle.backgroundColor = 'rgb(212, 38, 37)';
       navbarStyle.backgroundImage = 'url(./images/edge-skew.png)';
     } else if (!atMiddle) {
