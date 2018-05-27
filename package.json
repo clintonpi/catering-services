@@ -1,0 +1,35 @@
+{
+  "name": "catering-services",
+  "version": "1.0.0",
+  "description": "A catering service website",
+  "main": "",
+  "scripts": {
+    "build": "babel js/src -d js/lib",
+    "clean": "rm -r js/lib && mkdir js/lib",
+    "clean-build": "npm run clean && npm run build",
+    "lint": "eslint ./ || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clintonpi/catering-services.git"
+  },
+  "keywords": [
+    "madam",
+    "joy's",
+    "joy",
+    "catering"
+  ],
+  "author": "Clinton Nkwocha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clintonpi/catering-services/issues"
+  },
+  "homepage": "https://github.com/clintonpi/catering-services#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}

@@ -1,31 +1,30 @@
+'use strict';
+
 (function () {
-  
-  // navbar camouflage
   var toggle = document.querySelector('#burger-toggle'),
-      ourServices = document.querySelector('#our-services'),    
+      ourServices = document.querySelector('#our-services'),
       ourServicesTop = document.querySelector('#our-services').offsetTop;
 
-  toggle.checked = false;
-
-  function camouflage() {
+  // navbar camouflage
+  var camouflage = function camouflage() {
     var navbarStyle = document.querySelector('#navbar').style,
         ourServicesMiddle = ourServicesTop + ourServices.offsetHeight / 2,
-        atMiddle = window.pageYOffset < ourServicesMiddle ? true : false;
+        atMiddle = window.pageYOffset < ourServicesMiddle;
 
     if (window.pageYOffset === 0 && !toggle.checked) {
       navbarStyle.backgroundColor = 'transparent';
       navbarStyle.backgroundImage = 'none';
-    } else if ((window.pageYOffset > 0 && atMiddle) || (toggle.checked && atMiddle)) {
+    } else if (window.pageYOffset > 0 && atMiddle || toggle.checked && atMiddle) {
       navbarStyle.backgroundColor = 'rgb(212, 38, 37)';
       navbarStyle.backgroundImage = 'url(./images/edge-skew.png)';
     } else if (!atMiddle) {
-      navbarStyle.backgroundColor =  'rgb(190, 31, 36)';
+      navbarStyle.backgroundColor = 'rgb(190, 31, 36)';
       navbarStyle.backgroundImage = 'url(./images/background-repeat.png)';
     }
-  }
+  };
 
   // show back to top button
-  function showBtn() {
+  var showBtn = function showBtn() {
     var topBtn = document.querySelector('#top-btn');
 
     if (window.pageYOffset < ourServicesTop / 2) {
@@ -33,31 +32,31 @@
     } else {
       topBtn.style.bottom = '20px';
     }
-  }
+  };
 
   // Returns a function, that, as long as it continues to be invoked, will not
   // be triggered. The function will be called after it stops being called for
-  // N milliseconds. If `immediate` is passed, trigger the function on the
-  // leading edge, instead of the trailing.
-  function debounce(func, wait, immediate) {
-    var timeout;
-    return function() {
-      var context = this, args = arguments;
-      var later = function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
+  // N milliseconds.
+  var debounce = function debounce(callback, time) {
+    var interval = void 0;
+    return function () {
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      clearTimeout(interval);
+      interval = setTimeout(function () {
+        interval = null;
+        callback.apply(undefined, args);
+      }, time);
     };
   };
-  
+
+  toggle.checked = false;
+
   toggle.addEventListener('change', camouflage);
-  window.addEventListener('scroll', debounce(function() {
+  window.addEventListener('scroll', debounce(function () {
     camouflage();
     showBtn();
-  }, 500));
-  
+  }, 250));
 })();
