@@ -4,8 +4,8 @@
   "description": "A catering service website",
   "main": "",
   "scripts": {
-    "build": "babel js/src -d js/lib",
-    "clean": "rm -r js/lib && mkdir js/lib",
+    "build": "babel js -d dist/js",
+    "clean": "rm -r dist && mkdir dist",
     "clean-build": "npm run clean && npm run build",
     "lint": "eslint ./ || true"
   },
